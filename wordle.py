@@ -1,3 +1,6 @@
+import matplotlib.pyplot as plt
+import json
+
 def get_top_five(x):
 	return get_top(x,5)
 
@@ -61,9 +64,6 @@ def sort_names(names,values):
 				break
 	return names
 
-
-import matplotlib.pyplot as plt
-
 # f = open("english3.txt","r").read().split('\n')
 # g = open("fives.txt","w")
 # for word in f:
@@ -118,6 +118,10 @@ for letters in dictionaries:
 	plt.figure()
 	plt.title(f"Position {index}")
 	plt.bar(range(len(letters)), values, tick_label=names)
+	# save as json:
+	# {"index": index, "letters": {"a": 0, "b": 0, ...}}}
+	with open(f"position{index}.json", "w") as outfile:
+		json.dump({"index": index, "letters": letters}, outfile, indent=4)
 	index += 1
 
 names = list(totals.keys())
@@ -125,6 +129,10 @@ values = list(totals.values())
 plt.figure()
 plt.title("Total Frequency")
 plt.bar(range(len(totals)), values, tick_label=names)
+# save as json:
+# {"index": index, "letters": {"a": 0, "b": 0, ...}}}
+with open(f"total.json", "w") as outfile:
+	json.dump({"index": index, "letters": totals}, outfile, indent=4)
 
 
 # positional_letters = []
@@ -174,6 +182,7 @@ for word in u:
 sums = []
 for word in pos_word_list:
 	sums.append(dictionaries[0][word[0]] + max(dictionaries[1][word[1]],dictionaries[2][word[1]]) + max(dictionaries[1][word[2]],dictionaries[2][word[2]]) + dictionaries[3][word[3]] + dictionaries[4][word[4]])
+
 # print(sums)
 sorts = sort_names(pos_word_list,sums)
 print(sorts)
