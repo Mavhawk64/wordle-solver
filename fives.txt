@@ -535,7 +535,6 @@ boggy
 bogie
 bogle
 bogus
-boies
 boils
 boite
 bolas
@@ -1613,6 +1612,7 @@ fixed
 fixer
 fixes
 fizzy
+fjord
 flack
 flags
 flail
