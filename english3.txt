@@ -45893,6 +45893,7 @@ keeps
 keepsake
 keepsakes
 keeshond
+kefir
 keg
 kegful
 kegs
